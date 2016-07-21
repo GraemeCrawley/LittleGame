@@ -1,0 +1,38 @@
+#:kivy 1.0.9
+
+<UIBot>:
+    width: 800
+    Label:
+        font_size: 20
+        text_size: root.width, None
+        size: self.texture_size
+        text: root.messages
+        top: root.top - 60
+        x: root.width-self.width
+
+
+<PlusOrMinusGame>:
+    ui_bot: bot
+
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 1
+        Rectangle:
+            pos: 0, self.height - 65
+            size: self.width, 5
+
+    Label:
+        font_size: 50
+        center_x: root.width / 4
+        top: root.top - 50
+        text: "LittleGame"
+
+    Button:
+        bottom: root.height
+        size: root.width, 20
+        text: "Start"
+        on_press: root.start()
+
+    UIBot:
+        id: bot
+        x: root.width-self.width
