@@ -8,16 +8,30 @@ from kivy.properties import NumericProperty, ReferenceListProperty,\
 from bot import UIBot
 
 
+#Widget for bot game version
 class PlusOrMinusGame(Widget):
-    ui_bot = ObjectProperty(None)
+	"""
+	Widget to run the graphical version of the bot game.
+	@type ui_bot: None
+	@param ui_bot: setting the ui_bot to be none
+	"""
+	ui_bot = ObjectProperty(None)
 
-    def start(self):
+    #Starts the game thread
+	def start(self):
         threading.Thread(
             target=self.ui_bot.start_bot).start()
 
-
+#Builds the game
 class PlusOrMinusApp(App):
-    def build(self):
+	"""
+	Calls the widget
+	@type game: PlusOrMinusGame
+	@param game: gets the PlusOrMinusGame to start
+	@rtype: PlusOrMinusGame
+	@return: returns the PlusOrMinusGame instance
+	"""
+	def build(self):
         game = PlusOrMinusGame()
         return game
 
